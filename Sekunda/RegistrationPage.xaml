@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sekunda.RegistrationPage"
+             BackgroundColor="#E8F5E9">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <!-- Header with Back Button and Logo -->
+        <HorizontalStackLayout VerticalOptions="Start">
+            <Button Text="Nazad" Clicked="OnBackButtonClicked" />
+            <Image Source="logo.png" HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <!-- Registration Form -->
+        <Label Text="Prijava:" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" />
+
+        <!-- Entry Fields -->
+        <Entry x:Name="ImeEntry" Placeholder="Ime:*" />
+        <Entry x:Name="PrezimeEntry" Placeholder="Prezime:*" />
+        <Entry x:Name="DrzavaEntry" Placeholder="Država:*" />
+        <Entry x:Name="KlubEntry" Placeholder="Klub" />
+        <Entry x:Name="GodRodjEntry" Placeholder="God rodj:*" />
+        <Entry x:Name="EmailEntry" Placeholder="Email:*" />
+        <Entry x:Name="BrTelefonaEntry" Placeholder="Br telefona:*" />
+
+        <!-- Submit Button -->
+        <Button Text="Prijavi se" BackgroundColor="#4CAF50" TextColor="White" Clicked="OnPrijavaButtonClicked" />
+    </VerticalStackLayout>
+</ContentPage>
+

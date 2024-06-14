@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sekunda.OpisPage"
+             BackgroundColor="#E8F5E9">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <!-- Nazad Button -->
+        <Button Text="Nazad" Clicked="OnBackButtonClicked" BackgroundColor="#FFFFFF" TextColor="#000000" HorizontalOptions="Start" />
+
+        <!-- Event Icon and Name -->
+        <Grid ColumnDefinitions="Auto, *" Padding="10">
+            <Image x:Name="EventIcon" WidthRequest="50" HeightRequest="50" Source="{Binding Icon}" />
+            <VerticalStackLayout>
+                <Label x:Name="EventNameLabel" FontSize="Large" FontAttributes="Bold" TextColor="Black" />
+                <Label x:Name="EventDateLabel" TextColor="Gray" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Event Map -->
+        <Image Source="map_image.png" Aspect="AspectFill" HeightRequest="200" />
+
+        <!-- Event Description -->
+        <VerticalStackLayout Padding="10" BackgroundColor="#F0F4C3">
+            <Label Text="Organizer: Nemanja Lukomarovic" FontSize="Medium" TextColor="Black" />
+            <Label Text="Email: nemanja12@gmail.com" FontSize="Medium" TextColor="Black" />
+            <!-- Dodajte ostale informacije o događaju -->
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

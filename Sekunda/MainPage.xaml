@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sekunda.MainPage"
+             BackgroundColor="#E8F5E9">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <!-- Logo and Header -->
+        <Image Source="logo.png" HorizontalOptions="Center" />
+
+        <!-- Month Selector -->
+        <Picker x:Name="MonthPicker" Title="Select a Month" SelectedIndexChanged="OnMonthSelected" />
+
+
+        <!-- Event List -->
+        <StackLayout x:Name="EventList">
+            <!-- Events will be dynamically added here -->
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

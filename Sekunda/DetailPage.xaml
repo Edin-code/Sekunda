@@ -1,0 +1,37 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sekunda.DetailPage"
+             BackgroundColor="#E8F5E9">
+
+    <StackLayout Padding="20">
+        <!-- Event Icon and Name -->
+        <Grid ColumnDefinitions="Auto, *" Padding="10">
+            <Image x:Name="EventIcon" WidthRequest="50" HeightRequest="50" Source="{Binding IconPath}" />
+            <StackLayout>
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="Black"
+                       Text="{Binding Name}" 
+                       VerticalOptions="Center" />
+                <Label x:Name="EventDateLabel" TextColor="Gray" 
+                       Text="{Binding Date, StringFormat='dd.MM.yyyy'}"
+                       VerticalOptions="Center" />
+            </StackLayout>
+        </Grid>
+
+        <!-- Buttons -->
+        <StackLayout Orientation="Horizontal" Margin="20,20,20,0">
+            <Button Text="Opis" Clicked="OnOpisButtonClicked" BackgroundColor="#4CAF50" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand" Margin="0,0,10,0"/>
+            <Button Text="Prijava" Clicked="OnPrijavaButtonClicked" BackgroundColor="#4CAF50" TextColor="#FFFFFF" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <!-- Participant Table -->
+        <StackLayout BackgroundColor="#FFFFFF" Margin="0,20,0,0">
+            <Label Text="Prijavljeni takmičari:" FontSize="Medium" FontAttributes="Bold" Margin="10,0,0,10"/>
+            <ScrollView>
+                <StackLayout x:Name="ParticipantsContainer">
+                    <!-- Dynamically added participants will appear here -->
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
