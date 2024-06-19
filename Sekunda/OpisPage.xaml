@@ -7,24 +7,25 @@
     <VerticalStackLayout Padding="20" Spacing="10">
 
         <!-- Nazad Button -->
-        <Button Text="Nazad" Clicked="OnBackButtonClicked" BackgroundColor="#FFFFFF" TextColor="#000000" HorizontalOptions="Start" />
+        <Button Text="Nazad" Clicked="OnBackButtonClicked" BackgroundColor="Red" TextColor="#ffffff" />
 
         <!-- Event Icon and Name -->
         <Grid ColumnDefinitions="Auto, *" Padding="10">
-            <Image x:Name="EventIcon" WidthRequest="50" HeightRequest="50" Source="{Binding Icon}" />
-            <VerticalStackLayout>
+            <Image x:Name="EventIcon" WidthRequest="100" HeightRequest="100" Source="{Binding Icon}" />
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
                 <Label x:Name="EventNameLabel" FontSize="Large" FontAttributes="Bold" TextColor="Black" />
                 <Label x:Name="EventDateLabel" TextColor="Gray" />
             </VerticalStackLayout>
         </Grid>
-
+        <Button Text="Mapa staze" Clicked="OnMapButtonClicked" BackgroundColor="Green" TextColor="#ffffff" />
         <!-- Event Map -->
-        <Image Source="map_image.png" Aspect="AspectFill" HeightRequest="200" />
 
         <!-- Event Description -->
         <VerticalStackLayout Padding="10" BackgroundColor="#F0F4C3">
-            <Label Text="Organizer: Nemanja Lukomarovic" FontSize="Medium" TextColor="Black" />
-            <Label Text="Email: nemanja12@gmail.com" FontSize="Medium" TextColor="Black" />
+            <Label Text="-Startne pakete preuzimate najdalje 30 minuta prije početka trke." FontSize="Medium" TextColor="Black" />
+            <Label Text="-Na startu morate doći najdalje 5 minuta prije početka trke." FontSize="Medium" TextColor="Black" />
+            <Label Text="-U slučaju ulaganja određene žalbe, potrebno je žalbu poslati organizatoru trke najdalje 30 minuta nakon završetka trke." FontSize="Medium" TextColor="Black" />
+            <Label Text="-Za informacije o trasi trke kliknite na dugme 'Mapa staze' da biste vidjeli trasu trke." FontSize="Medium" TextColor="Black" />
             <!-- Dodajte ostale informacije o događaju -->
         </VerticalStackLayout>
 

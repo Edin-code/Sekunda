@@ -3,8 +3,6 @@
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
 
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Sekunda</RootNamespace>
@@ -27,6 +25,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.60" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.60" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.60" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 		<MauiImage Include="Resources\Images\*" />
@@ -36,35 +41,51 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="Resources\Images\beograd.png" />
-		<None Remove="Resources\Images\logo.PNG" />
-		<None Remove="Resources\Images\novisad.png" />
-		<None Remove="Resources\Images\sarajevo.png" />
-		<None Remove="Resources\Images\slika1.PNG" />
-		<None Remove="Resources\Images\slika2.PNG" />
-		<None Remove="Resources\Images\slika3.PNG" />
-		<None Remove="Resources\Images\slika4.PNG" />
-		<None Remove="Resources\Images\tirana.png" />
+		<None Remove="Resources\AppIcon\appicon.svg" />
+		<None Remove="Resources\AppIcon\appiconfg.svg" />
+		<None Remove="Resources\Images\advent.png" />
+		<None Remove="Resources\Images\beogradpolu.png" />
+		<None Remove="Resources\Images\kula.png" />
+		<None Remove="Resources\Images\mostar.png" />
+		<None Remove="Resources\Images\neum.png" />
+		<None Remove="Resources\Images\skopje.png" />
+		<None Remove="Resources\Images\stolac.png" />
+		<None Remove="Resources\Images\vivicita.png" />
+		<None Remove="Resources\Images\vogosca.png" />
+		<None Remove="Resources\Images\zimski.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.40" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<None Include="Resources\Images\beograd.png" />
+		<None Include="Resources\Images\logo.PNG" />
+		<None Include="Resources\Images\novisad.png" />
+		<None Include="Resources\Images\sarajevo.png" />
+		<None Include="Resources\Images\slika1.PNG" />
+		<None Include="Resources\Images\slika2.PNG" />
+		<None Include="Resources\Images\slika3.PNG" />
+		<None Include="Resources\Images\slika4.PNG" />
+		<None Include="Resources\Images\tirana.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="MapPage.xaml.cs">
+			<DependentUpon>MapPage.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 		<MauiXaml Update="DetailPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="MapPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="OpisPage.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="RegistrationPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 	</ItemGroup>
-
-	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadGenericExceptionInfoBarSekundaHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

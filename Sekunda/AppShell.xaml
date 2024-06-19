@@ -7,6 +7,4 @@
     <ShellItem>
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
     </ShellItem>
-
 </Shell>
-

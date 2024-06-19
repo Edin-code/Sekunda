@@ -5,11 +5,10 @@
              BackgroundColor="#E8F5E9">
 
     <VerticalStackLayout Padding="20" Spacing="10">
-        <!-- Header with Back Button and Logo -->
-        <HorizontalStackLayout VerticalOptions="Start">
-            <Button Text="Nazad" Clicked="OnBackButtonClicked" />
-            <Image Source="logo.png" HorizontalOptions="Center" />
-        </HorizontalStackLayout>
+        <!-- Header with Logo -->
+        <Grid>
+            <Image Source="logo.png" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Aspect="AspectFit" />
+        </Grid>
 
         <!-- Registration Form -->
         <Label Text="Prijava:" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" />
@@ -27,4 +26,3 @@
         <Button Text="Prijavi se" BackgroundColor="#4CAF50" TextColor="White" Clicked="OnPrijavaButtonClicked" />
     </VerticalStackLayout>
 </ContentPage>
-

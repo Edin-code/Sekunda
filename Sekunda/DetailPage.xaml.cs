@@ -15,8 +15,8 @@ namespace Sekunda
         {
             InitializeComponent();
 
-            _event = ev;
-            _participants = _event.Participants;
+            _event = ev ?? throw new ArgumentNullException(nameof(ev));
+            _participants = _event.Participants ?? new List<Participant>();
 
             BindingContext = _event;
 
@@ -26,9 +26,12 @@ namespace Sekunda
 
         private void LoadParticipants()
         {
-            foreach (var participant in _participants)
+            if (_participants != null)
             {
-                AddParticipantToView(participant);
+                foreach (var participant in _participants)
+                {
+                    AddParticipantToView(participant);
+                }
             }
         }
 
@@ -55,6 +58,7 @@ namespace Sekunda
             await Navigation.PushAsync(new OpisPage(_event));
         }
 
+
         private async void OnPrijavaButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RegistrationPage(_event, AddParticipantToList));
@@ -68,29 +72,25 @@ namespace Sekunda
 
         private void LoadEventIcon()
         {
+            Console.WriteLine($"Loading Event Icon from path: {_event.IconPath}");
             if (!string.IsNullOrEmpty(_event.IconPath))
             {
-                EventIcon.Source = ImageSource.FromResource(_event.IconPath, typeof(App).Assembly);
+                if (_event.IconPath.StartsWith("http"))
+                {
+                    // If the path is a URL
+                    EventIcon.Source = new UriImageSource
+                    {
+                        Uri = new Uri(_event.IconPath),
+                        CachingEnabled = true,
+                        CacheValidity = TimeSpan.FromDays(1)
+                    };
+                }
+                else
+                {
+                    // If the path is a local file
+                    EventIcon.Source = ImageSource.FromFile(_event.IconPath);
+                }
             }
         }
-    }
-
-    public class Event2
-    {
-        public string Name { get; set; }
-        public DateTime Date { get; set; }
-        public List<Participant> Participants { get; set; } = new List<Participant>();
-        public string IconPath { get; set; }
-    }
-
-    public class Participant
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Country { get; set; }
-        public string Club { get; set; }
-        public string YearOfBirth { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
     }
 }

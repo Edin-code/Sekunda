@@ -14,6 +14,7 @@ namespace Sekunda.Models
         public string IconPath { get; set; } // Putanja do ikone za događaj
     }
 
+
     public class Participant
     {
         public string FirstName { get; set; }

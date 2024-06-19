@@ -2,18 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Sekunda.MainPage"
-             BackgroundColor="#E8F5E9">
+             BackgroundColor="#E8F5E9"
+             Shell.NavBarIsVisible="False">
 
-    <VerticalStackLayout Padding="20" Spacing="10">
+    <VerticalStackLayout Padding="0" Spacing="10">
         <!-- Logo and Header -->
-        <Image Source="logo.png" HorizontalOptions="Center" />
+        <Image Source="logo.png" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Aspect="AspectFit" />
 
         <!-- Month Selector -->
-        <Picker x:Name="MonthPicker" Title="Select a Month" SelectedIndexChanged="OnMonthSelected" />
-
+        <Picker x:Name="MonthPicker" Title="Select a Month" SelectedIndexChanged="OnMonthSelected" Margin="20,0,20,0" />
 
         <!-- Event List -->
-        <StackLayout x:Name="EventList">
+        <StackLayout x:Name="EventList" Padding="20,0,20,0">
             <!-- Events will be dynamically added here -->
         </StackLayout>
     </VerticalStackLayout>

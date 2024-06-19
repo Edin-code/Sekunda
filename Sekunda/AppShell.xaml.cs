@@ -15,10 +15,9 @@ namespace Sekunda
         private void RegisterRoutes()
         {
             Routing.RegisterRoute(nameof(DetailPage), typeof(DetailPage));
-            Routing.RegisterRoute(nameof(OpisPage), typeof(OpisPage)); // Registrirajte i druge rute ako je potrebno
-            Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage)); // Primjer registracije rute
+            Routing.RegisterRoute(nameof(OpisPage), typeof(OpisPage));
+            Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
+            Routing.RegisterRoute(nameof(MapPage), typeof(MapPage)); // Register MapPage route
         }
     }
 }
-
-
